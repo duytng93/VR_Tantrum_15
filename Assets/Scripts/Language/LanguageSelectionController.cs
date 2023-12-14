@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 // <summary>
 // Controls the language selection UI.

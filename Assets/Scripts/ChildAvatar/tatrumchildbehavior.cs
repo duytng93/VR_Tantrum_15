@@ -1,31 +1,21 @@
-//using System;
+
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class tatrumchildbehavior : MonoBehaviour
 {
     public ChildState childState;
-    //public float tantrumLevelInV2;
     private UserPrefs userPrefs;
     #region Objects
     Animator animator;
-    AudioSource audioSource;            // main audio
-    Rigidbody rigidBody;
+    AudioSource audioSource;
     private GameObject mainCamera;
     #endregion
-
-    #region Tantrum
-    //public static int tantrumCoefficient;// matches tantrum coefficient from GazeAnalysis
-    public static int tantrumLevel;     // simplified version of tantrumCoefficient only has 6 levels
-    
-    #endregion
-
-    #region Movement
-    string move;                      
-    #endregion
-
+     
+    public int tantrumLevel;     // simplified version of tantrumCoefficient only has 6 levels
+    string move;    // to hold the child behavior(cry, stamp, walk etc...) at any moment  
+    private float breakTimer; // timer for 9s calm between tantrum behaviors
 
     #region Audio Clips
     public AudioClip startVoice;
@@ -61,23 +51,29 @@ public class tatrumchildbehavior : MonoBehaviour
 
     #endregion
 
+
+    #region static varibles
+    public static bool childIsTalking = false; // used in other scripts to check if the child is showing bad behaviors
+    public static bool simluationOnGoing; //used in other scripts to check if the simulation is ongoing
+    public static bool negativeStatementSelected; //used in other scripts. when a negative statement is selected, this flag will be true and
+                                                  // the child keep showing bad behaviors with out calm break
+
+    public static bool gameLost; //used in simulationcontroller script. when gameLost is true, child audio source is mute so that simulationController can play ending audio
+    #endregion
+
+    #region variables related to walk and where to walk
     private bool isWalkingOrRunning;
-    public static bool childIsTalking = false;
-    private float breakTimer;
-    public static bool simluationOnGoing;
     public List<GameObject> spots;
     private GameObject nextSpot;
-    public static bool gameLost;
-   
     private bool walkedOrRan;
     private bool isIdle;
-    public static bool negativeStatementSelected;
+    #endregion
+
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
-        rigidBody = GetComponent<Rigidbody>();
         userPrefs = GameObject.Find("UserPrefs").GetComponent<UserPrefs>();
         mainCamera = GameObject.Find("Main Camera");
 
@@ -95,13 +91,9 @@ public class tatrumchildbehavior : MonoBehaviour
         move = "firstTalk";
         StartCoroutine(setMoveatStartVoice());
         StartCoroutine(setStartTantrum());
-
-        rigidBody.useGravity = false;
-        rigidBody.isKinematic = false;
-
         simluationOnGoing = false;
         gameLost = false;
-        isIdle = true;
+        isIdle = false;
     }
 
     
@@ -109,7 +101,6 @@ public class tatrumchildbehavior : MonoBehaviour
     void Update()
     {
         
-        Debug.Log("game lost#########################" + gameLost);
         if (gameLost)
         {
             audioSource.volume = 0f; // mute this to play ending kid voice in simulationcontrol script
@@ -181,49 +172,41 @@ public class tatrumchildbehavior : MonoBehaviour
 
         // Convert tantrum coefficient to tantrum level
         tantrumLevel = Mathf.CeilToInt(childState.tantrumLevel / 20);    // tantrum coefficient is 0-100 and we want 6 levels 0-5
-                                                                  //tantrumLevel = 1;
-                                                                  //if (tantrumLevel > 5) Debug.Log("Invalid Tantrum Coefficient");
+                                                                  
 
-        //
         if (move==("SadIdle") && !animator.IsInTransition(0))
         {
             animator.CrossFade("sad", 0.1f);
-            //animator.Play("sad");
 
         }
 
         if (move == ("embarrased") && !animator.IsInTransition(0))
         {
             animator.CrossFade("idleEmbarrased", 0.1f);
-            //animator.Play("sad");
 
         }
 
         if (move == ("idleDeepBreath") && !animator.IsInTransition(0))
         {
             animator.CrossFade("idleDeepBreath", 0.1f);
-            //animator.Play("sad");
 
         }
 
         //
         if (move==("sad2") && !animator.IsInTransition(0))
         {
-            //animator.Play("sad2");
             animator.CrossFade("sad2", 0.1f);
         }
 
         //
         if (move==("idle") && !animator.IsInTransition(0))
         {
-            //animator.Play("idle");
             animator.CrossFade("idle", 0.1f);
         }
 
         //
         if (move==("cry1") && !animator.IsInTransition(0))
         {
-            //animator.Play("cry1");
             animator.CrossFade("cry1", 0.1f);
 
         }
@@ -231,7 +214,6 @@ public class tatrumchildbehavior : MonoBehaviour
         //
         if (move==("cry2") && !animator.IsInTransition(0))
         {
-            //animator.Play("cry2");
             animator.CrossFade("cry2", 0.1f);
         }
 
@@ -239,20 +221,17 @@ public class tatrumchildbehavior : MonoBehaviour
         if (move==("stamp") && !animator.IsInTransition(0))
         {
             animator.CrossFade("stamp", 0.1f);
-            //animator.Play("stamp");
         }
 
         //
         if (move==("telloff") && !animator.IsInTransition(0))
         {
-            //animator.Play("telloff");
             animator.CrossFade("telloff", 0.05f);
         }
 
         //
         else if (move==("shorttalk") && !animator.IsInTransition(0))
         {
-            //animator.Play("shorttalk");
             animator.CrossFade("shorttalk", 0.05f);
         }
 
@@ -260,7 +239,6 @@ public class tatrumchildbehavior : MonoBehaviour
         if (move == ("firstTalk") && !animator.IsInTransition(0)) {
             animator.CrossFade("firstTalk", 0.05f);
         }
-            //animator.Play("firstTalk");
 
         if (move == "sadwalk")
         {
@@ -296,18 +274,15 @@ public class tatrumchildbehavior : MonoBehaviour
             transform.rotation = Quaternion.LookRotation(direction);
         }
 
-
-
         if (transform.position != nextSpot.transform.position) {
             if(type == "walk")
                 transform.position = Vector3.MoveTowards(transform.position, nextSpot.transform.position, 0.8f * Time.deltaTime);
             else transform.position = Vector3.MoveTowards(transform.position, nextSpot.transform.position, 1.3f * Time.deltaTime);
         }
-            
         else
         {
-            isWalkingOrRunning = false;
             walkedOrRan = true;
+            isWalkingOrRunning = false;
             int curIndex = spots.IndexOf(nextSpot);
             int nextIndex = Random.Range(0, spots.Count);
             while (curIndex == nextIndex) { nextIndex = Random.Range(0, spots.Count); }
@@ -318,7 +293,6 @@ public class tatrumchildbehavior : MonoBehaviour
 
     void UpdateMovement()
     {
-        Debug.Log("################update Movement called");
 
         if (tantrumLevel == 0)
         {

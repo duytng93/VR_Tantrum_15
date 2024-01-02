@@ -25,8 +25,10 @@ public class SliderFollowCamera : MonoBehaviour
         {
             foreach (GameObject canvas in attention_tantrum_Canvas)
             {
-                canvas.transform.position = mainCameraTrans.position + mainCameraTrans.rotation * new Vector3(-0.7f, 0, 2) + new Vector3(0, 0.2f, 0.3f);
+                //canvas.transform.position = mainCameraTrans.position + mainCameraTrans.rotation * new Vector3(-0.7f, 0, 2) + new Vector3(0, 0.2f, 0.3f);
                 canvas.transform.rotation = Quaternion.LookRotation(canvas.transform.position - mainCameraTrans.position);
+                canvas.transform.position = mainCameraTrans.position + mainCameraTrans.rotation * new Vector3(-0.9f, 0, 2) + new Vector3(0, 0.2f, 0.3f);
+                //canvas.transform.rotation = Quaternion.LookRotation(canvas.transform.position - mainCameraTrans.position + new Vector3(0, -0.3f, 0));
                 //prevent the meters canvas from going into the floor
                 if (canvas.transform.position.y < -0.5f)
                     canvas.transform.position = new Vector3(canvas.transform.position.x, -0.5f, canvas.transform.position.z);
@@ -55,7 +57,7 @@ public class SliderFollowCamera : MonoBehaviour
             }
             speakPanel.transform.position = new Vector3(0f, 3, 0);
             
-            winOrLoseCanvas.transform.position = mainCameraTrans.position + mainCameraTrans.rotation * new Vector3(0f, 0, 2) + new Vector3(0, 0.2f, 0f);
+            winOrLoseCanvas.transform.position = mainCameraTrans.position + mainCameraTrans.rotation * new Vector3(0f, 0, 2) + new Vector3(0, 0.3f, 0f);
             winOrLoseCanvas.transform.rotation = Quaternion.LookRotation(winOrLoseCanvas.transform.position - mainCameraTrans.position);
             
         }

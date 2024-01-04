@@ -19,7 +19,7 @@ public class SimulationController : MonoBehaviour
 
     private float gameTimeLimit = 300.0f; // 5 minutes
     private float tantrumZeroTimeLimit = 7.0f;
-    private float tantrumEightyTimeLimit = 30.0f; // 15f originally
+    private float tantrumEightyTimeLimit = 30.0f;
 
     public AudioSource audioSource;
     public AudioClip EndingVoice_adult_English;
@@ -28,15 +28,12 @@ public class SimulationController : MonoBehaviour
     public AudioClip EndingVoice_kid_Spanish;
     public Button resetButton;
 
-    //public static bool gameEnd; // needed to know when to display ending message lose or win in SliderFollowCamera script
     public TextMeshProUGUI winOrLoseStatus;
     void Start()
     {
-        // Find the SceneController and UserPrefs objects and get their scripts
         sceneController = GameObject.Find("SceneController").GetComponent<SceneController>();
         userPrefs = GameObject.Find("UserPrefs").GetComponent<UserPrefs>();
         simulationLanguageUpdater = GameObject.Find("SimulationLanguageUpdater").GetComponent<SimulationLanguageUpdater>();
-        //winOrLoseStatus.text = userPrefs.IsEnglishSpeaker() ? "Get Ready!!" : "¡¡Prepararse!!";
         // Track the elapsed time
         elapsedTime = 0.0f;
     }
@@ -58,16 +55,11 @@ public class SimulationController : MonoBehaviour
         // Increment the elapsed time
         if (tatrumchildbehavior.simluationOnGoing)
             elapsedTime += Time.deltaTime;
-        //Debug.Log("tantrumTimeAtZero is" + tantrumTimeAtZero);
-        //Debug.Log("elapse time is: " + elapsedTime);
+
         if (tantrumTimeAtZero > tantrumZeroTimeLimit)
         {
             resetTimer();
             winOrLoseStatus.text = userPrefs.IsEnglishSpeaker() ? "You did it!! The child is calm now!!! :)": "¡¡Lo hiciste!! El niño ya está tranquilo. :)";
-            /* sceneController.UnloadScene(Enums.SceneNames.ChildScene);
-             if (userPrefs.IsEnglishSpeaker())
-                 sceneController.LoadScene(Enums.SceneNames.EndSceneWin);
-             else sceneController.LoadScene(Enums.SceneNames.EndSceneWinSpanish);*/
             if (userPrefs.IsEnglishSpeaker())
                 StartCoroutine(playAudioandEndGameWin(EndingVoice_adult_English));
             else StartCoroutine(playAudioandEndGameWin(EndingVoice_adult_Spanish));
@@ -76,10 +68,6 @@ public class SimulationController : MonoBehaviour
         {
             resetTimer();
             winOrLoseStatus.text = userPrefs.IsEnglishSpeaker() ? "Let's try again! :(" : "Inténtalo de nuevo! :(";
-            /*sceneController.UnloadScene(Enums.SceneNames.ChildScene);
-            if (userPrefs.IsEnglishSpeaker())
-                sceneController.LoadScene(Enums.SceneNames.EndSceneLose);
-            else sceneController.LoadScene(Enums.SceneNames.EndSceneLoseSpanish);*/
             if (userPrefs.IsEnglishSpeaker())
                 StartCoroutine(playAudioandEndGameLose(EndingVoice_kid_English));
             else StartCoroutine(playAudioandEndGameLose(EndingVoice_kid_Spanish));

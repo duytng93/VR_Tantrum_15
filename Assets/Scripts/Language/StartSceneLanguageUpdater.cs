@@ -1,7 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
-
-using UnityEngine.Video;
 
 // <summary>
 // Update all text in the scene to the current language.

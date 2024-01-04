@@ -6241,7 +6241,7 @@ PrefabInstance:
     - target: {fileID: 1046417439138410384, guid: b3018bb6a4d7044a196a8d3b15417bb0, type: 3}
       propertyPath: movementController
       value: 
-      objectReference: {fileID: 576072432}
+      objectReference: {fileID: 0}
     - target: {fileID: 1046417439138410384, guid: b3018bb6a4d7044a196a8d3b15417bb0, type: 3}
       propertyPath: panelRectTransform
       value: 
@@ -6738,7 +6738,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2112893630954310244, guid: b3018bb6a4d7044a196a8d3b15417bb0, type: 3}
+    - {fileID: 3740382601561217322, guid: b3018bb6a4d7044a196a8d3b15417bb0, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 7102155172042695882, guid: b3018bb6a4d7044a196a8d3b15417bb0, type: 3}
@@ -8554,17 +8556,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 55c17b338f3ae4fd2887f5366420681e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &576072432 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2112893630954310244, guid: b3018bb6a4d7044a196a8d3b15417bb0, type: 3}
-  m_PrefabInstance: {fileID: 424590733}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 576072424}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 208ec3cbc522fcd4882b67cf8ed03222, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &576072434 stripped
@@ -10637,19 +10628,12 @@ GameObject:
   - component: {fileID: 755249116}
   - component: {fileID: 755249121}
   - component: {fileID: 755249120}
-  - component: {fileID: 755249124}
-  - component: {fileID: 755249122}
-  - component: {fileID: 755249123}
-  - component: {fileID: 755249126}
   - component: {fileID: 755249113}
   - component: {fileID: 755249111}
   - component: {fileID: 755249118}
   - component: {fileID: 755249125}
-  - component: {fileID: 755249127}
-  - component: {fileID: 755249128}
   - component: {fileID: 755249130}
   - component: {fileID: 755249131}
-  - component: {fileID: 755249132}
   m_Layer: 0
   m_Name: TKBoyA
   m_TagString: Child
@@ -10765,9 +10749,9 @@ MonoBehaviour:
   childState: {fileID: 755249121}
   simulationController: {fileID: 1127413156}
   faceCheck: {fileID: 755249131}
-  movementController: {fileID: 755249122}
+  movementController: {fileID: 0}
   eyeTrackingObjectFocuser: {fileID: 1395143124}
-  childAnimationController: {fileID: 755249124}
+  childAnimationController: {fileID: 0}
   attentionBar: {fileID: 377758208}
   tantrumBar: {fileID: 1860513807}
   attentionRegions:
@@ -10782,11 +10766,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0e4194523d0f306459db775d6d2d5a37, type: 2}
   - {fileID: 11400000, guid: 7f9191fc14815594bb094ace92585ba9, type: 2}
   eyeTrackingUpdatesAttentionLevel: 1
-  hands: {fileID: 1109579865}
-  handsMaterial: {fileID: 2100000, guid: e770bc2fcdb7b6b46860d6dcc9fbc641, type: 2}
   boxedbreather: {fileID: 412993647}
   panelRectTransform: {fileID: 989022972}
-  updateFrequencyPerSecond: 0.1
   focusStatusTextMesh: []
 --- !u!114 &755249121
 MonoBehaviour:
@@ -10804,68 +10785,6 @@ MonoBehaviour:
   attentionLevel: 70
   receivingAttention: 0
   tl: 0
---- !u!114 &755249122
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 755249110}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 208ec3cbc522fcd4882b67cf8ed03222, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agent: {fileID: 755249118}
-  mySpots:
-  - {fileID: 1205555594}
-  - {fileID: 2094774788}
-  - {fileID: 955039385}
---- !u!114 &755249123
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 755249110}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d426045fa4c8d4498073e634248b411, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnAnimationStart:
-    m_PersistentCalls:
-      m_Calls: []
-  OnAnimationComplete:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 755249124}
-        m_TargetAssemblyTypeName: ChildAnimationController, Assembly-CSharp
-        m_MethodName: OnAnimationEnd
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &755249124
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 755249110}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38af43ea93eac08428af9e58ed57227c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  validBehaviors: []
-  overrideBehavior: 0
-  currentBehavior: 0
 --- !u!82 &755249125
 AudioSource:
   m_ObjectHideFlags: 0
@@ -10962,155 +10881,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &755249126
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 755249110}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b3a8040ba77a654289e390b0ac0dd22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioFolderName: Audio
-  audioClips: []
-  secondsBetweenVocalizations: 3
---- !u!114 &755249127
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 755249110}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a7424fd8a8e42242bf2f547226e1cb4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  childState: {fileID: 755249121}
-  tantrumLevelInV2: 0
-  walkRunAudioSource: {fileID: 755249125}
-  mainCamera: {fileID: 0}
-  isAudioPlaying: 0
-  startVoice: {fileID: 8300000, guid: 78c6c05e1ff729c44b140ff5270ce89c, type: 3}
-  level2Cry1: {fileID: 8300000, guid: 1f0aed2ef8ea4884cac1b3de46e49fb4, type: 3}
-  level2Cry2: {fileID: 8300000, guid: fc833a9b87aef9a489096da94fd08e84, type: 3}
-  level2Cry3: {fileID: 8300000, guid: cbc96cf21fed45a47bb16c4562a60cdb, type: 3}
-  level3Cry1: {fileID: 8300000, guid: 9b6361c65f8e6874db7de717a56dff21, type: 3}
-  level3Cry2: {fileID: 8300000, guid: f56e73eec5475bb47aa25cc1c26b4e63, type: 3}
-  level3Cry3: {fileID: 8300000, guid: ba55a75348c0bce49af726eccc9eb589, type: 3}
-  level4Cry1: {fileID: 8300000, guid: af7030dc463b6b2408dfb63aaac5d39f, type: 3}
-  level4Cry2: {fileID: 8300000, guid: 09d6928b3e5105d40ada96307a111aa8, type: 3}
-  level4Cry3: {fileID: 8300000, guid: 9e3961761579caa49be6edc3135b7c78, type: 3}
-  level5Cry1: {fileID: 8300000, guid: 543772961ddbe0d4eaf8760b8c6c7b41, type: 3}
-  level5Cry2: {fileID: 8300000, guid: 077a80f4d2f1ac04fbb66f006270f5ec, type: 3}
-  level5Cry3: {fileID: 8300000, guid: a19a32aac6acc3041b09f0e85131298d, type: 3}
-  bodyFalling: {fileID: 8300000, guid: 3ae2c9414634a5f4db296ed664007a8d, type: 3}
-  bodyFallingWithCrying: {fileID: 8300000, guid: 119a2377a38f62b4eaed3bf978815803, type: 3}
-  fallCry: {fileID: 8300000, guid: 6c9578335341ae14a9c1201741c25c0d, type: 3}
-  level4Angry1: {fileID: 8300000, guid: c05d3ae790fbc8c4290ccfd980b5774c, type: 3}
-  level4Angry2: {fileID: 8300000, guid: 8ace4f333d030f9449fb384539f5e944, type: 3}
-  level5Angry1: {fileID: 8300000, guid: c5d282edbf2bf0e4b80a36838434ee18, type: 3}
-  level5Angry2: {fileID: 8300000, guid: a09e9442bd9612342a12ae71a36ee4be, type: 3}
-  mixLevel4Angry1: {fileID: 8300000, guid: bec0a10265e2c5b4e98c9676f29596d9, type: 3}
-  mixLevel4Angry2: {fileID: 8300000, guid: 7b14302d502658547b274f97810fec4b, type: 3}
-  mixLevel5Angry1: {fileID: 8300000, guid: ea08e0bdbd8e2394491da4e392e99175, type: 3}
-  mixLevel5Angry2: {fileID: 8300000, guid: 53d390a2686a6544cb054ddf2ef5cbbc, type: 3}
-  level4Sad1: {fileID: 8300000, guid: 76d1807324830f24ba5263b47ab5ddca, type: 3}
-  level4Sad2: {fileID: 8300000, guid: 58d7fa3d08afd004bb3e012e0be1b064, type: 3}
-  level5Sad1: {fileID: 8300000, guid: c7eeda7d5374a924e8ea61db0e3c921f, type: 3}
-  level5Sad2: {fileID: 8300000, guid: 7d6926d919de36a4483139d950d8ddf1, type: 3}
-  walkAudio: {fileID: 0}
-  runAudio: {fileID: 0}
-  pausedAudio: {fileID: 0}
-  canIPlayWithYourPhone: {fileID: 8300000, guid: 77a05dfd34b10b745824a47b766e7866, type: 3}
-  canIWatchPawPatrol: {fileID: 8300000, guid: f32db72b5d5c1b14ebef908b2c9bed30, type: 3}
-  doYouWantToPlayWithMe: {fileID: 8300000, guid: 6c0034d9067a39c4a8d4d7a3ba84348f, type: 3}
-  giveToMeNow: {fileID: 8300000, guid: fb67d63221195a34ba500a93fbdeaddb, type: 3}
-  iAmGoingToBiteYou: {fileID: 8300000, guid: abffacbfb5a816641b771834e0de66ef, type: 3}
-  iAmGoingToHateYou: {fileID: 8300000, guid: a7ea5ac02a122f9488b27f8bd71d9e09, type: 3}
-  iDontCare: {fileID: 8300000, guid: 17ffbf4923c9d974dbfd742e26563476, type: 3}
-  iHateYou: {fileID: 8300000, guid: 57a53ea0899a0ee44aa46e52111e8f6c, type: 3}
-  iAmGettingMad: {fileID: 8300000, guid: 0f27f59afbf461c488b743df92864ff3, type: 3}
-  itsMyTurn: {fileID: 8300000, guid: 8a0f9b6ad4993b14d95efa8938ba45a0, type: 3}
-  notRightNowImUsingIt: {fileID: 8300000, guid: 96c8d4f161c4052498c678a2f89539e3, type: 3}
-  notRightNowPleaseWaitUntilImDoneUsingIt: {fileID: 8300000, guid: 986240e5dfd048947bb8ffbedc95c73a, type: 3}
-  youAreTheWorst: {fileID: 8300000, guid: 3f26b6857e256d44aa41847360fc840a, type: 3}
-  whatIsThat: {fileID: 8300000, guid: f5d8540d05cad3444b91b78183ea860d, type: 3}
-  whatAreYouDoing: {fileID: 8300000, guid: 73edd677decc5394e94f17eaa3af6d21, type: 3}
-  whyCantIHaveIt: {fileID: 8300000, guid: 929e29084b9f7704e8889b4b98d99b4d, type: 3}
---- !u!114 &755249128
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 755249110}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45417661c38e341dea8f452e31c458a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  childState: {fileID: 755249121}
-  tantrumLevelInV2: 0
-  previousTantrumLevel: 0
-  walkRunAudioSource: {fileID: 755249125}
-  mainCamera: {fileID: 0}
-  isAudioPlaying: 0
-  startVoice: {fileID: 8300000, guid: 78c6c05e1ff729c44b140ff5270ce89c, type: 3}
-  level2Cry1: {fileID: 8300000, guid: 34cb07bca700e4a9f932c48507adb7ab, type: 3}
-  level2Cry2: {fileID: 8300000, guid: 6c9263931a9080c498d55041a84e972b, type: 3}
-  level2Cry3: {fileID: 8300000, guid: 58da404b53f38254e82f396119190cdd, type: 3}
-  level3Cry1: {fileID: 8300000, guid: 81b889ecffc410d45a414930f2c59419, type: 3}
-  level3Cry2: {fileID: 8300000, guid: 6dde34375dccc4745b224d0b392517bc, type: 3}
-  level3Cry3: {fileID: 8300000, guid: 371d2a21d441a254c9d20d497cc618f3, type: 3}
-  level4Cry1: {fileID: 8300000, guid: 1b918d92eb8500e49be0c49ba4695343, type: 3}
-  level4Cry2: {fileID: 8300000, guid: 98d1c2c6032b5e74385c087979c8fee2, type: 3}
-  level4Cry3: {fileID: 8300000, guid: 998427c813c1e6e44819c8a5e1aff4f1, type: 3}
-  level5Cry1: {fileID: 8300000, guid: 543772961ddbe0d4eaf8760b8c6c7b41, type: 3}
-  level5Cry2: {fileID: 8300000, guid: 077a80f4d2f1ac04fbb66f006270f5ec, type: 3}
-  level5Cry3: {fileID: 8300000, guid: a19a32aac6acc3041b09f0e85131298d, type: 3}
-  bodyFalling: {fileID: 0}
-  bodyFallingWithCrying: {fileID: 0}
-  fallCry: {fileID: 0}
-  level4Angry1: {fileID: 0}
-  level4Angry2: {fileID: 0}
-  level5Angry1: {fileID: 0}
-  level5Angry2: {fileID: 0}
-  mixLevel4Angry1: {fileID: 0}
-  mixLevel4Angry2: {fileID: 0}
-  mixLevel5Angry1: {fileID: 0}
-  mixLevel5Angry2: {fileID: 0}
-  level4Sad1: {fileID: 0}
-  level4Sad2: {fileID: 0}
-  level5Sad1: {fileID: 0}
-  level5Sad2: {fileID: 0}
-  walkAudio: {fileID: 0}
-  runAudio: {fileID: 0}
-  pausedAudio: {fileID: 0}
-  canIPlayWithYourPhone: {fileID: 8300000, guid: 77a05dfd34b10b745824a47b766e7866, type: 3}
-  canIWatchPawPatrol: {fileID: 8300000, guid: f32db72b5d5c1b14ebef908b2c9bed30, type: 3}
-  doYouWantToPlayWithMe: {fileID: 8300000, guid: 6c0034d9067a39c4a8d4d7a3ba84348f, type: 3}
-  giveToMeNow: {fileID: 0}
-  iAmGoingToBiteYou: {fileID: 8300000, guid: abffacbfb5a816641b771834e0de66ef, type: 3}
-  iAmGoingToHateYou: {fileID: 8300000, guid: a7ea5ac02a122f9488b27f8bd71d9e09, type: 3}
-  iDontCare: {fileID: 8300000, guid: 17ffbf4923c9d974dbfd742e26563476, type: 3}
-  iHateYou: {fileID: 8300000, guid: 57a53ea0899a0ee44aa46e52111e8f6c, type: 3}
-  iAmGettingMad: {fileID: 8300000, guid: 0f27f59afbf461c488b743df92864ff3, type: 3}
-  itsMyTurn: {fileID: 0}
-  notRightNowImUsingIt: {fileID: 0}
-  notRightNowPleaseWaitUntilImDoneUsingIt: {fileID: 0}
-  youAreTheWorst: {fileID: 8300000, guid: 3f26b6857e256d44aa41847360fc840a, type: 3}
-  whatIsThat: {fileID: 8300000, guid: f5d8540d05cad3444b91b78183ea860d, type: 3}
-  whatAreYouDoing: {fileID: 8300000, guid: 73edd677decc5394e94f17eaa3af6d21, type: 3}
-  whyCantIHaveIt: {fileID: 8300000, guid: 929e29084b9f7704e8889b4b98d99b4d, type: 3}
-  firstintro: 1
-  walkSpeed: 1
-  walkDistance: 5
-  cryDuration: 2
-  originalPosition: {fileID: 0}
 --- !u!114 &755249130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11170,21 +10940,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55c17b338f3ae4fd2887f5366420681e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &755249132
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 755249110}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40525a2cf2ad7460caaabcd73d71fdef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetPosition: {fileID: 0}
-  speed: 1
-  waitTime: 2
 --- !u!1 &761906734
 GameObject:
   m_ObjectHideFlags: 0
@@ -11880,7 +11635,7 @@ PrefabInstance:
     - target: {fileID: 5881749332628982698, guid: ff9d57a39263143e3ba6d229176e64eb, type: 3}
       propertyPath: movementController
       value: 
-      objectReference: {fileID: 1348990971}
+      objectReference: {fileID: 0}
     - target: {fileID: 5881749332628982698, guid: ff9d57a39263143e3ba6d229176e64eb, type: 3}
       propertyPath: panelRectTransform
       value: 
@@ -12213,7 +11968,9 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6100854603609989007, guid: ff9d57a39263143e3ba6d229176e64eb, type: 3}
+    - {fileID: 7085530976464878490, guid: ff9d57a39263143e3ba6d229176e64eb, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 4794412411634472278, guid: ff9d57a39263143e3ba6d229176e64eb, type: 3}
@@ -13484,11 +13241,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0e4194523d0f306459db775d6d2d5a37, type: 2}
   - {fileID: 11400000, guid: 7f9191fc14815594bb094ace92585ba9, type: 2}
   eyeTrackingUpdatesAttentionLevel: 1
-  hands: {fileID: 0}
-  handsMaterial: {fileID: 0}
   boxedbreather: {fileID: 0}
   panelRectTransform: {fileID: 0}
-  updateFrequencyPerSecond: 0.1
   focusStatusTextMesh: []
 --- !u!114 &862248921
 MonoBehaviour:
@@ -18001,7 +17755,7 @@ PrefabInstance:
     - target: {fileID: 2785713206697719223, guid: 7092dfedd1c184366b460387b98948c8, type: 3}
       propertyPath: movementController
       value: 
-      objectReference: {fileID: 1247639974}
+      objectReference: {fileID: 0}
     - target: {fileID: 2785713206697719223, guid: 7092dfedd1c184366b460387b98948c8, type: 3}
       propertyPath: panelRectTransform
       value: 
@@ -18270,7 +18024,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: TantrumLevelLabelTag
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 938101579422472006, guid: 7092dfedd1c184366b460387b98948c8, type: 3}
+    - {fileID: 7649596022805859334, guid: 7092dfedd1c184366b460387b98948c8, type: 3}
+    - {fileID: 5685351794030133363, guid: 7092dfedd1c184366b460387b98948c8, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 1366571660613666211, guid: 7092dfedd1c184366b460387b98948c8, type: 3}
@@ -19319,17 +19076,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 55c17b338f3ae4fd2887f5366420681e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1247639974 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7649596022805859334, guid: 7092dfedd1c184366b460387b98948c8, type: 3}
-  m_PrefabInstance: {fileID: 1183287570}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1247639966}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 208ec3cbc522fcd4882b67cf8ed03222, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1247639976 stripped
@@ -21081,17 +20827,6 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.13730516, y: 0.043391474, z: 0.00038437545}
     m_Extent: {x: 0.15720658, y: 0.11097149, z: 0.27721083}
   m_DirtyAABB: 0
---- !u!114 &1348990971 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6100854603609989007, guid: ff9d57a39263143e3ba6d229176e64eb, type: 3}
-  m_PrefabInstance: {fileID: 795787102}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1348990963}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 208ec3cbc522fcd4882b67cf8ed03222, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1348990973 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5340836033004707215, guid: ff9d57a39263143e3ba6d229176e64eb, type: 3}
@@ -23096,11 +22831,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0e4194523d0f306459db775d6d2d5a37, type: 2}
   - {fileID: 11400000, guid: 7f9191fc14815594bb094ace92585ba9, type: 2}
   eyeTrackingUpdatesAttentionLevel: 1
-  hands: {fileID: 0}
-  handsMaterial: {fileID: 0}
   boxedbreather: {fileID: 0}
   panelRectTransform: {fileID: 0}
-  updateFrequencyPerSecond: 0.1
   focusStatusTextMesh: []
 --- !u!114 &1435735131
 MonoBehaviour:
@@ -29407,11 +29139,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0e4194523d0f306459db775d6d2d5a37, type: 2}
   - {fileID: 11400000, guid: 7f9191fc14815594bb094ace92585ba9, type: 2}
   eyeTrackingUpdatesAttentionLevel: 1
-  hands: {fileID: 0}
-  handsMaterial: {fileID: 0}
   boxedbreather: {fileID: 0}
   panelRectTransform: {fileID: 0}
-  updateFrequencyPerSecond: 0.1
   focusStatusTextMesh: []
 --- !u!114 &1844837153
 MonoBehaviour:
@@ -30149,7 +29878,6 @@ MonoBehaviour:
   TKBoyB: {fileID: 1247639966}
   TKBoyC: {fileID: 1348990963}
   TKBoyD: {fileID: 576072424}
-  avatar: 
 --- !u!4 &1951867193 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 634936656867324987, guid: 7092dfedd1c184366b460387b98948c8, type: 3}

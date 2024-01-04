@@ -49,12 +49,10 @@ public class SimulationLanguageUpdater : MonoBehaviour
         {
             foreach (GameObject breathImageSpanish in breathImagesSpanish)
             {
-                //breathImage.GetComponent<RawImage>().texture = Resources.Load<Texture>("BreathBoxComponents/boxBreathEnglish.png");
                 breathImageSpanish.SetActive(false);
             }
             foreach (GameObject breathImage in breathImages)
             {
-                //breathImage.GetComponent<RawImage>().texture = Resources.Load<Texture>("BreathBoxComponents/boxBreathEnglish.png");
                 breathImage.SetActive(true);
             }
         }
